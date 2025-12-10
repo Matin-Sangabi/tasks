@@ -36,8 +36,16 @@ export const userDetails = async (id: string) => {
   return response.data;
 };
 
-export const userUpdate = async ({ id }: { id: string }) => {
-  const response = await http.put(`/users/${id}`);
+export const userUpdate = async ({
+  id,
+  name,
+  job,
+}: {
+  id: string;
+  name: string;
+  job: string;
+}) => {
+  const response = await http.put(`/users/${id}`, { name, job });
   return response.data;
 };
 
