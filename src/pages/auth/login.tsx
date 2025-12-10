@@ -21,7 +21,7 @@ import toast from "react-hot-toast";
 export default function LoginPage() {
   const defaultValues = useMemo(() => {
     return {
-      username: "",
+      // username: "",
       email: "",
       password: "",
     };
@@ -37,7 +37,7 @@ export default function LoginPage() {
   }, [isLogin, navigate]);
 
   const schemaValidation = yup.object().shape({
-    username: yup.string().required("Username is required"),
+    // username: yup.string().required("Username is required"),
     password: yup
       .string()
       .required("Password is required")
@@ -56,9 +56,9 @@ export default function LoginPage() {
       login(res);
     },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onError : (err : any) => {
-      toast.error(err?.response?.data?.message || "Something went wrong !")
-    }
+    onError: (err: any) => {
+      toast.error(err?.response?.data?.message || "Something went wrong !");
+    },
   });
 
   const onSubmit = (data: yup.InferType<typeof schemaValidation>) => {
@@ -71,7 +71,7 @@ export default function LoginPage() {
         <h1 className="text-2xl font-semibold text-center pb-8">Login</h1>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <FormField
+            {/* <FormField
               control={form.control}
               name="username"
               render={({ field }) => (
@@ -83,7 +83,7 @@ export default function LoginPage() {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
             <FormField
               control={form.control}
               name="email"
